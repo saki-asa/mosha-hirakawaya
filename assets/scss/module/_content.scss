@@ -1,0 +1,748 @@
+// ===========================================
+// page
+// ===========================================
+
+/* section
+====================================== */
+/* parts
+--------------------------------- */
+
+
+// ===========================================
+// Common generic class 全ページ共通汎用クラス
+// ===========================================
+/* title タイトル
+--------------------------------- */
+// page title
+.page-tit-01 {
+}
+
+// common title
+.com-tit-01 {
+}
+
+.com-tit-02 {
+}
+
+.com-tit-03 {
+}
+
+.com-tit-04 {
+}
+
+.com-tit-05 {
+}
+
+
+/* panel パネル
+--------------------------------- */
+.com-panel-01 {
+}
+
+
+/* Gap between sections or blocks
+/* セクションやブロック間の隙間
+--------------------------------- */
+.com-mt-s {
+	margin-top: 20px;
+	@include mq-up('s') {
+		margin-top: 30px;
+	}
+}
+
+.com-mt-m {
+	margin-top: 40px;
+	@include mq-up('s') {
+		margin-top: 60px;
+	}
+}
+
+.com-mt-l {
+	margin-top: 90px;
+	@include mq-up('s') {
+		margin-top: 120px;
+	}
+}
+
+// Margin for one line
+.com-mt-1em {
+	margin-top: 1em;
+}
+
+
+/* list style リストスタイル
+--------------------------------- */
+.com-list-01 {
+	li {
+		margin-left: 1.2em;
+		&::before {
+			content: "・";
+			display: inline-block;
+			width: 1.2em;
+			margin-left: -1.2em;
+		}
+		+ li {
+			margin-top: .4em;
+		}
+	}
+	$makers: (
+		notice: "※",
+		circle: "●",
+		square: "■",
+	);
+	@each $name, $mark in $makers {
+		&.#{$name} {
+			li {
+				&::before {
+					content: "#{$mark}";
+				}
+			}
+		}
+	}
+}
+
+.com-list-02 {
+	counter-reset: item;
+	list-style-type: none;
+	padding-left: 0;
+	li {
+		margin-left: 1.8em;
+		+ li {
+			margin-top: .4em;
+		}
+		&::before {
+			counter-increment: item;
+			content: counter(item)'.';
+			display: inline-block;
+			width: 1.5em;
+			padding-right: .3em;
+			margin-left: -1.8em;
+			text-align: right;
+		}
+	}
+}
+
+
+
+
+/* text テキスト
+--------------------------------- */
+.com-text-01 {
+}
+
+
+/* font-size フォントサイズ
+--------------------------------- */
+@for $i from 10 through 30 {
+	.com-fz-#{$i} {
+		@include font($i);
+	}
+}
+
+
+/* アクセント色
+--------------------------------- */
+.com-accent-01 {
+}
+
+
+/* リンク
+--------------------------------- */
+// Block type button element
+.com-btn-01 {
+	display: block;
+	max-width: 336px;
+	text-align: center;
+	background: map-get($colors, main);
+	color: #fff;
+	padding: .8em;
+	padding-right: 2em;
+	box-sizing: border-box;
+	position: relative;
+	&::after {
+		content: '\f054';
+		font-family: $font-family-icon;
+		position: absolute;
+		right: .8em;
+		top: 0;
+		bottom: 0;
+		height: 1em;
+		line-height: 1;
+		margin: auto;
+	}
+	&:hover {
+		color: #fff;
+	}
+}
+
+// Inline type button element
+.com-link-01 {
+	text-decoration: underline;
+}
+
+
+
+
+
+
+// ===========================================
+// recruitments 募集要項
+// ===========================================
+/* list
+--------------------------------- */
+.recruitments-list-01 {
+	li {
+		+ li {
+			margin-top: 20px;
+			@include mq-up(s) {
+				margin-top: 30px;
+			}
+		}
+	}
+}
+
+/* btn
+--------------------------------- */
+.recruitments-btn-01 {
+	display: flex;
+	align-items: center;
+	background: #F5F5F5;
+	padding: 20px;
+	line-height: 1.5;
+	@include font(16);
+	@include mq-up(s) {
+		padding: 40px 28px;
+		@include font(21);
+	}
+	.tit {
+		flex: 1;
+	}
+	&::before {
+		content: '';
+		display: block;
+		width: 6px;
+		align-self: stretch;
+		margin-right: .9em;
+		background: map-get($colors, main);
+	}
+	&::after {
+		content: '\f054';
+		font-family: $font-family-icon;
+		margin-left: auto;
+		padding-left: .9em;
+	}
+	&:hover {
+		background: lighten(map-get($colors, main), 40%);
+	}
+}
+
+
+// ===========================================
+// recruitments single 募集要項記事詳細
+// ===========================================
+/* dl table
+--------------------------------- */
+.job-table-01 {
+	// border setting
+	$border: solid #989898;
+
+	@include mq-down(s) {
+		border-bottom: 1px $border;
+	}
+	@include mq-up(s) {
+		display: grid;
+		grid-template-columns: 292px 1fr;
+		column-gap: 40px;
+	}
+	dt {
+		padding: 1.5em 0 1em;
+		padding-left: 25px;
+		font-weight: 500;
+		position: relative;
+		border-top: 1px $border;
+		@include mq-up(s) {
+			padding-bottom: 1.5em;
+			border-top: 2px $border;
+			&:last-of-type {
+				border-bottom: 2px $border;
+			}
+		}
+		&::before {
+			content: '';
+			display: block;
+			width: 14px;
+			height: 14px;
+			background: map-get($colors, main);
+			position: absolute;
+			margin-top: .5em;
+			left: 0;
+		}
+	}
+	dd {
+		padding-bottom: 1.5em;
+		@include mq-up(s) {
+			padding-top: 1.5em;
+			border-top: 1px $border;
+			&:last-of-type {
+				border-bottom: 1px $border;
+			}
+		}
+	}
+}
+
+
+// ===========================================
+// information お知らせ一覧
+// ===========================================
+/* list
+--------------------------------- */
+.info-list-01 {
+	$border: 1px solid #D1D1D1;
+	border-top: $border;
+	li {
+		border-bottom: $border;
+	}
+}
+
+/* btn
+--------------------------------- */
+.info-btn-01 {
+	display: block;
+	padding: 1em 0;
+	padding-right: 1.5em;
+	position: relative;
+	@include mq-up(s) {
+		padding: {
+			top: 2em;
+			bottom: 2em;
+			right: 3em;
+		}
+	}
+	@include mq-up() {
+		display: flex;
+		align-items: center;
+	}
+	&:hover {
+		background: lighten(map-get($colors, main), 40%);
+	}
+
+	&::after {
+		content: '\f054';
+		font-family: $font-family-icon;
+		@include font(20);
+		color: map-get($colors, main);
+		height: 1em;
+		line-height: 1;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		margin: auto;
+		right: 0;
+		@include mq-up() {
+			right: .5em;
+		}
+	}
+
+	.tit {
+		@include font(16);
+		font-weight: bold;
+		display: block;
+		margin-top: 1em;
+		@include mq-up(s) {
+			@include font(17);
+		}
+		@include mq-up() {
+			margin-top: 0;
+			flex: 1;
+			border-left: 1px solid #707070;
+			padding-left: 1.1em;
+		}
+	}
+	.data {
+		margin-left: .5em;
+		@include mq-up() {
+			width: 8em;
+			text-align: center;
+		}
+	}
+}
+
+/* icon
+--------------------------------- */
+.cat-ico-01 {
+	display: inline-block;
+	min-width: 100px;
+	padding: 0 1em;
+	box-sizing: border-box;
+	background: map-get($colors, main);
+	text-align: center;
+	color: #fff;
+	@include font(12);
+	font-weight: 500;
+}
+
+/* pagination ページナビ
+--------------------------------- */
+.com-pagination {
+	ul {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		margin-left: -8px;
+		margin-top: -8px;
+		.page-numbers {
+			display: block;
+			margin-left: 8px;
+			margin-top: 8px;
+			box-sizing: border-box;
+			&:not(.prev):not(.next) {
+				display: grid;
+				border: 1px solid #C0C0C0;
+				width: 64px;
+				height: 64px;
+				place-items: center;
+			}
+			&.prev, &.next {
+				padding: 1em;
+				&:hover {
+					color: map-get($colors, main);
+				}
+			}
+			&.current {
+				border-width: 2px !important;
+				border-color: map-get($colors, main) !important;
+			}
+		}
+		a:not(.prev):not(.next) {
+			&:hover {
+				background: lighten(map-get($colors, main), 40%);
+			}
+		}
+	}
+}
+
+
+// ===========================================
+// column コラム一覧
+// ===========================================
+/* list
+--------------------------------- */
+.column-list-01 {
+}
+
+/* btn
+--------------------------------- */
+.column-btn-01 {
+	display: block;
+	padding: 14px;
+	border: 1px solid #D1D1D1;
+	&:hover {
+		background: lighten(map-get($colors, main), 40%);
+	}
+	.img {
+		background: #F0F0F0;
+		padding-top: 100%;
+		overflow: hidden;
+		margin-bottom: .5em;
+		position: relative;
+		&::before {
+			content: 'NO IMAGE';
+			position: absolute;
+			z-index: 1;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+		img {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			z-index: 2;
+		}
+	}
+	.tit {
+		@include font(15);
+		font-weight: 500;
+		display: block;
+		line-height: 1.8;
+		margin-top: .6em;
+		margin-bottom: .6em;
+	}
+	.data {
+		margin-left: .5em;
+		@include font(13);
+	}
+	.text {
+		@include font(12);
+	}
+}
+
+
+// ===========================================
+// single 記事詳細
+// ===========================================
+/* post navigation 記事前後ボタン
+--------------------------------- */
+.single-nav {
+	border-top: 1px solid #D1D1D1;
+	margin-top: 40px;
+	padding-top: 40px;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-gap: 20px;
+	@include mq-up(s) {
+		grid-template-columns: 3fr 3fr 2fr;
+		margin-top: 60px;
+		padding-top: 60px;
+	}
+	a {
+		display: block;
+		text-align: center;
+		padding: .5em;
+		border: 2px solid map-get($colors, main);
+		color: map-get($colors, main);
+		position: relative;
+		&::before {
+			font-family: $font-family-icon;
+			height: 1em;
+			line-height: 1;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			margin: auto;
+		}
+
+		&[rel="prev"] {
+			padding-left: 2em;
+			&::before {
+				content: '\f053';
+				left: 1em;
+			}
+		}
+		&[rel="next"] {
+			padding-right: 2em;
+			&::before {
+				content: '\f054';
+				right: 1em;
+			}
+		}
+		&.index {
+			background: lighten(map-get($colors, text), 20%);
+			border-color: lighten(map-get($colors, text), 20%);
+			color: #fff;
+			padding-right: 2em;
+			&::before {
+				content: '\f077';
+				right: 1em;
+			}
+		}
+	}
+}
+
+
+
+// ===========================================
+// contact お問い合わせ
+// ===========================================
+/* panel
+--------------------------------- */
+.contact-panel-01 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 7px;
+	.tel {
+		width: 40px;
+		line-height: 22px;
+    margin-right: .9em;
+    text-align: center;
+    color: map-get($colors, main);
+    @include font(12);
+    font-weight: 700;
+    border: map-get($colors, main) 1px solid;
+		@include mq-up(s) {
+			width: 52px;
+			line-height: 28px;
+			@include font(14);
+		}
+	}
+	.number {
+		line-height: 1;
+		@include font(32);
+		font-weight: 500;
+		color: map-get($colors, main);
+		@include mq-up(s) {
+			@include font(43);
+		}
+		a {
+			color: map-get($colors, main);
+		}
+	}
+}
+
+
+
+// ===========================================
+// form
+// ===========================================
+/* dl table
+--------------------------------- */
+.form-table-01 {
+	// border setting
+	$border: solid #989898;
+
+	@include mq-down(s) {
+		border-bottom: 1px $border;
+	}
+	@include mq-up(s) {
+		display: grid;
+		grid-template-columns: 292px 1fr;
+		column-gap: 40px;
+	}
+	> dt {
+		padding: 1.5em 0 1em;
+		font-weight: 500;
+		position: relative;
+		border-top: 1px $border;
+		@include mq-up(s) {
+			padding-top: 2em;
+			padding-bottom: 2em;
+			border-top: 2px $border;
+			&:last-of-type {
+				border-bottom: 2px $border;
+			}
+		}
+	}
+	// 必須項目のとき
+	.required {
+		&:before {
+			content: '必須';
+			float: right;
+			@include font(11);
+			background: map-get($colors, danger);
+			color: #fff;
+			padding: .2em .8em;
+			margin-left: 1em;
+		}
+	}
+	> dd {
+		padding-bottom: 2em;
+		@include mq-up(s) {
+			padding-top: 2em;
+			border-top: 1px $border;
+			&:last-of-type {
+				border-bottom: 1px $border;
+			}
+		}
+	}
+}
+
+.form-table-02 {
+	@include mq-up() {
+		display: grid;
+		grid-gap: 1em;
+		grid-template-columns: max-content 1fr;
+	}
+	dd {
+		+ dt {
+			@include mq-down() {
+				margin-top: 1em;
+			}
+		}
+	}
+}
+
+// required icon 本文中の必須項目アイコン
+.form-icon-required {
+	display: inline-block;
+	@include font(11);
+	background: map-get($colors, danger);
+	color: #fff;
+	padding: .2em .8em;
+	margin-right: 1em;
+}
+
+// Side by side 横並び調整用
+.wpcf7-radio,
+.wpcf7-checkbox {
+  margin-left: -1em;
+}
+
+// design of radio box ラジオボックスデザイン変更
+input[type="radio"] {
+	position: relative;
+	vertical-align: middle;
+	-webkit-appearance: none;
+	border: 1px solid #cccccc;
+	background-position: 50% 50%;
+	width: 18px;
+	height: 18px;
+	display: inline-block;
+	border-radius: 50%;
+	outline: none;
+	margin: 0 5px 0 0;
+	&:checked {
+    border-color: map-get($colors, main);
+    border-width: 2px;
+		&:after {
+			content: "";
+			width: 10px;
+			height: 10px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			display: block;
+			background-color: map-get($colors, main);
+			border-radius: 50%;
+		}
+	}
+  label {
+  	display: inline-block;
+  }
+}
+
+// design of checkbox チェックボックスデザイン変更
+input[type="checkbox"] {
+	margin: 0 5px 0 0;
+	width: 18px;
+	height: 18px;
+	border: 1px solid #cccccc;
+	vertical-align: middle;
+	-webkit-appearance: none;
+	display: inline-block;
+	outline: none;
+	&:checked {
+		position: relative;
+		&:after {
+			content: '';
+			display: block;
+			width: 10px;
+			height: 18px;
+			border: 4px solid map-get($colors, main);
+			box-sizing: border-box;
+			border-top: none;
+			border-left: 0;
+			transform: rotate(45deg);
+			position: absolute;
+			top: -6px;
+			left: 6px;
+		}
+	}
+  label {
+  	display: inline-block;
+  }
+}
+
+
+// ===========================================
+// thanks
+// ===========================================
+/* list
+--------------------------------- */
+.thanks-panel-01 {
+	padding-top: 1.5em;
+	padding-bottom: 1.5em;
+	border-top: 1px solid #989898;
+	border-bottom: 1px solid #989898;
+}

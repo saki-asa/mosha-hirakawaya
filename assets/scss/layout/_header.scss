@@ -1,0 +1,287 @@
+
+// ===========================================
+// header
+// ===========================================
+
+/* #header
+====================================== */
+#header {
+	background-color: white;
+}
+
+.header-head {
+	border-bottom: 1px solid #ddd;
+	padding: 13px 40px;
+	.tit {
+		@include font(12);
+	}
+}
+
+.nav-wrapper {
+	@include mq-down ('m') {
+		display: none;
+	}
+	.about {
+		@include font(13);
+		padding-right: 2.5em;
+		border-right: 1px solid #ddd;
+		margin-right: 2em;
+		position: relative;
+		&::after {
+			content: "";
+			background-image: url(../img/arrow_4.svg);
+			background-repeat: no-repeat;
+			width: 7px;
+			height: 7px;
+			position: absolute;
+			right: 1.5em;
+			bottom: 35%;
+		}
+	}
+	@include font(13);
+	li {
+		padding-left: 2em;
+		position: relative;
+		+ li {
+			margin-left: 2em;
+		}
+		a {
+			display: block;
+		}
+		&::before {
+			content: "";
+			width: 21px;
+			height: 21px;
+			background-repeat: no-repeat;
+			position: absolute;
+			left: 0;
+			top: 10%;
+		}
+		&.guide::before {
+			background-image: url(../img/icon_guide.svg);
+		}
+		&.member::before {
+			background-image: url(../img/icon_member.svg);
+		}
+		&.cart {
+			&::before {
+				background-image: url(../img/icon_cart.svg);
+			}
+		}
+	}
+}
+
+.cart {
+	position: relative;
+	padding-right: 22px;
+	.item-count {
+		color: #fff;
+		text-align: center;
+		font-weight: bold;
+		@include font(11);
+		background-color: #CA2B2D;
+		border-radius: 50%;
+		display: inline-block;
+		line-height: 1.7;
+		width: 17px;
+		height: 17px;
+		position: absolute;
+		right: 0;
+		&.pc {
+			top: 0;
+		}
+		&.sp {
+			bottom: 10%;
+		}
+	}
+}
+
+
+.header-foot {
+	padding: 12px 20px;
+	@include mq-up('m') {
+		align-items: center;
+		padding: 28px 40px;
+	}
+}
+
+#header-logo {
+	margin-bottom: 0;
+	margin-right: 40px;
+}
+
+#gnav {
+	@include mq-down('m') {
+		display: none;
+	}
+}
+
+.nav-product {
+	font-family: $font-family-mincho;
+	font-weight: bold;
+	flex-wrap: wrap;
+	flex-wrap: wrap-reverse;
+	@include mq-up('m') {
+		margin-right: 1.5em;
+		border-right: 1px solid #ddd;
+	}
+	li {
+		padding-right: 1.5em;
+		letter-spacing: .15em;
+		@include mq-up('m') {
+			padding-top: .5em;
+			padding-bottom: .5em;
+		}
+		 a {
+			display: block;
+			white-space: nowrap;
+			@include mq-down('l') {
+				@include font(14);
+			}
+		 }
+	}
+}
+
+#gnav {
+	.icon-pulldown {
+		position: relative;
+		padding-right: 37.5px;
+		&:after {
+			content: "";
+			background-image: url(../img/icon_arrow01.svg);
+			background-repeat: no-repeat;
+			width: 13px;
+			height: 13px;
+			transform: rotate( 90deg );
+			position: absolute;
+			top: 35%;
+			right: 1.3em;
+		}
+	}
+}
+
+.link-tofu {
+	@include mq-up('m') {
+		display: flex;
+		margin-right: 1.5em;
+		white-space: nowrap;
+	}
+	span {
+		@include font(11);
+		border-right: 1px solid #ddd;
+		@include mq-up('m') {
+			padding-right: 1.5em;
+			align-self: center;
+			@include font(13);
+		}
+
+	}
+}
+
+.search-form {
+	align-items: center;
+	.search-box {
+		border-top: none !important;
+		border-left: none !important;
+		border-right: none !important;
+		padding: 15px 0 !important;
+		@include mq-up('m') {
+			width: 188px !important;
+		}
+	}
+	.search {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		background: url(../img/icon_search.svg) no-repeat;
+		background-size: cover;
+		width: 21px;
+		height: 21px;
+		border: none;
+		@include font(0);
+	}
+}
+
+
+.nav-sp {
+	@include mq-up('m') {
+		display: none;
+	}
+	a {
+		width: 22px;
+		+ a {
+			margin-left: .6em;
+		}
+	}
+}
+
+.icon-hamburger {
+	display: flex;
+	align-self: center;
+	@include mq-up('m') {
+		display: none;
+	}
+	div {
+		position: relative;
+		width: 27px;
+		height: 25px;
+	}
+	span {
+		display: block;
+	    position: absolute;
+	    left: 0;
+	    width: 100%;
+	    height: 2px;
+		background-color: #141414;
+		&:nth-of-type(1) {
+			top: 0;
+	 	}
+		&:nth-of-type(2) {
+			top: 50%;
+	 	}
+		 &:nth-of-type(3) {
+			 bottom: 0;
+		  }
+	}
+}
+
+/* parts
+--------------------------------- */
+
+
+/* #header-offcanvas-btn
+--------------------------------- */
+#header-offcanvas-btn {
+}
+
+/* #header-logo　
+--------------------------------- */
+#header-logo {
+	a {
+		display: block;
+		width: 191px;
+	}
+}
+
+/* #header-tel　
+--------------------------------- */
+#header-tel {
+}
+
+
+
+
+// ===========================================
+// navigation
+// ===========================================
+
+
+/* gnav
+====================================== */
+#gnav {
+}
+
+
+/* #lnav
+====================================== */
+#lnav-01 {
+}

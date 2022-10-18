@@ -1,0 +1,223 @@
+// ===========================================
+// footer
+// ===========================================
+/* #footer
+====================================== */
+#footer {
+	background-color: #141414;
+	color: #fff;
+	padding-top: 60px;
+	padding-bottom: 84px;
+}
+/* footer-logo
+====================================== */
+#footer-logo {
+	width: 96px;
+	height: 175px;
+	margin: 0 auto;
+}
+
+/* footer-head
+====================================== */
+#footer-head {
+}
+
+/* footer-body
+====================================== */
+#footer-body {
+}
+
+/* footer-foot
+====================================== */
+#footer-foot {
+}
+
+
+/* parts
+====================================== */
+/* pagetop
+-------------------------------------- */
+.pagetop {
+	@include font(10);
+	position: fixed;
+	right: 10px;
+	bottom: 10px;
+	z-index: 100;
+}
+
+/* footer-wrapper
+-------------------------------------- */
+
+.footer-wrapper {
+	@include mq-up('m') {
+		display: flex;
+		justify-content: space-between;
+	}
+}
+
+.footer-left {
+	text-align: center;
+	@include mq-up('m') {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		margin-right: 30px;
+	}
+}
+
+
+.btn-about {
+	display: inline-block;
+	align-self: center;
+	color: #fff;
+	font-family: $font-family-mincho;
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	@include mq-up('m') {
+		-ms-writing-mode: tb-rl;
+		writing-mode: vertical-rl;
+		padding: 28px 10px;
+	}
+	@include mq-down('m') {
+		margin-top: 50px;
+		margin-bottom: 40px;
+		padding: 15px 20px;
+	}
+}
+
+.footer-right {
+	width: 100%;
+	max-width: 905px;
+	position: relative;
+}
+.btn-wrapper {
+	width: 100%;
+	border: 1px solid rgba(221, 221, 221, 0.15);
+	margin-bottom: 24px;
+	@include mq-up('m') {
+		display: flex;
+		align-items: stretch;
+	}
+	li {
+		@include mq-up('m') {
+			width: 50%;
+		}
+		+ li {
+			@include mq-up('m') {
+				border-left: 1px solid rgba(221, 221, 221, 0.15);
+			}
+			@include mq-down('m') {
+				border-top: 1px solid rgba(221, 221, 221, 0.15);
+			}
+		}
+	}
+	a {
+		padding: 36px;
+		display: block;
+		box-sizing: border-box;
+		height: 100%;
+		h2 {
+			display: inline-block;
+			color: #fff;
+			font-family: $font-family-mincho;
+			font-weight: 500;
+			@include font(24);
+			margin-bottom: 36px;
+			padding-right: 24px;
+			position: relative;
+			&::after {
+				content: "";
+				background-image: url(../img/arrow-white.svg);
+				background-repeat: no-repeat;
+				background-size: 7px 11px;
+				width: 7px;
+				height: 11px;
+				position: absolute;
+				right: 0;
+				bottom: 35%;
+			}
+		}
+		p {
+			color: #fff;
+			@include font(14);
+			line-height: 1.7;
+			position: relative;
+			padding-right: 30px;
+			&::after {
+				content: '';
+				width: 30px;
+				height: 30px;
+				background-size: contain;
+				display: block;
+				position: absolute;
+				right: 0;
+				top: 25%;
+			}
+			&.phone::after {
+				background-image: url(https://www.saga-hirakawaya.jp/html/template/hirakawaya/img/common/icon_tel-white.svg);
+			}
+			&.company::after {
+				background-image: url(../img/icon_company-white.svg);
+			}
+		}
+	}
+}
+
+/* footer-nav
+-------------------------------------- */
+.footer-nav {
+	>li {
+		margin-top: 32px;
+	}
+}
+.footer-nav-min {
+	margin-top: 10px;
+	 li {
+		display: inline-block;
+		&:not(:last-child) {
+			margin-right: 1.5em;
+		}
+		&.icon {
+			padding-left: 30px;
+			position: relative;
+			&::before {
+				position: absolute;
+				left: 0;
+				content: "";
+				display: inline-block;
+				width: 20px;
+				height: 20px;
+			}
+			&.facebook::before {
+				background-image: url(../img/icon-facebook.svg);
+			}
+			&.instagram::before {
+				background-image: url(../img/icon-instagram.svg);
+			}
+		}
+		a {
+			display: block;
+			color:  rgba(255, 255, 255, 0.5);
+			@include font(14);
+		}
+	}
+}
+
+
+/* .copyright
+--------------------------------- */
+.copyright {
+	@include font(11);
+	color:  rgba(255, 255, 255, 0.5);
+	text-align: right;
+	@include mq-up('m') {
+		-ms-writing-mode: tb-rl;
+		writing-mode: vertical-rl;
+		position: absolute;
+		bottom: 0;
+		right: 0;
+	}
+	@include mq-down('m') {
+		margin-top: 50px;
+		font-weight: 500;
+	}
+}

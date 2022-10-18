@@ -1,0 +1,61 @@
+// ===========================================
+// functions 関数
+// ===========================================
+
+/* Only output numerical values
+/* 数値のみ出力する
+====================================== */
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+  @return $number;
+}
+
+// ========================================
+// variables 変数一覧
+// ========================================
+/* font $size
+====================================== */
+$font-size-default: 15px;
+
+/* font family
+====================================== */
+$font-family-icon: 'FontAwesome', FontAwesome;
+$font-family-base: YakuHanJP, "ヒラギノ角ゴ ProN", "Hiragino Kaku Gothic ProN", YuGothic, "游ゴシック体", "Yu Gothic Medium", "游ゴシック Medium", "Yu Gothic", "游ゴシック", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", Arial, Helvetica, Verdana, sans-serif;
+$font-family-gothic: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+$font-family-mincho: YakuHanJP, "Kyoukasho ICA Medium", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "リュウミン R-KL", 游明朝, YuMincho, HG明朝E, "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+
+/* Break point ブレイクポイント
+====================================== */
+// min-width
+$breakpoint-up: (
+  'l': 1100px,
+  'm': 960px,
+  's': 768px,
+) !default;
+
+// max-width → minから1px減らす
+$breakpoint-down: () !default;
+@each $tag, $size in $breakpoint-up {
+  $breakpoint-down: map-merge($breakpoint-down, (#{$tag}: $size - 1));
+}
+
+
+/* max site width コンテンツ最大幅
+====================================== */
+$max-width-m: 960px;
+$max-width-s: 768px;
+
+
+/* colors 色管理
+====================================== */
+$colors: (
+  text: #141414, // default text color テキストメイン
+  main: #F7F3EC, // main key color メインカラー
+  sub: #BDA366,
+  red: #8B1C2A,
+  white: #fff,
+  gray: #FAFAFA,
+
+) !default;
